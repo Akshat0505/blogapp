@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+
+    <div class = "container">
+        <header class="animate__animated animate__rubberBand">
+            <img src="/images/blog-img.jpg" alt = "blog image" class = "blog-img">
+            <h1>Blogs</h1>
+        </header>
+        
+            <div> <a id = "newblogbtn" href = "/create" aria-label = "Create an new blow post"> Create a Blog</a></div>
+          <div class = "blogs">
+            <% blogs.forEach(blog => { %>
+            <article class = "blog">
+                <h2> <%= blog.title  %></h2>
+                <p> <%= blog.body.substring(0,100) %>...</p>
+                <a class = "readmore" href = "/blogs/<%=blog.id%>"> Read more</a>
+              </article>
+            <%}) %>
+          </div>
+          
+          
+          <footer>
+    <p> &copy; 2021 Blogs </p>
+</footer>
+          
+          
+
+    
+    </div>
+</body>
+
+</html>

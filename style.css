@@ -1,0 +1,458 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #fff;
+    color: #2d2d2d;
+    line-height: 1.5;
+    width: 100%;
+    overflow-x: hidden;  /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Header styles */
+header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 40px;
+    overflow: hidden;
+    height: 300px;    /* Fixed height */
+    width: 100vw;  /* Use viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Full viewport width */
+    height: 100%;
+    object-fit: cover;  /* This makes image cover the whole space */
+    object-position: center;  /* Centers the image */
+}
+
+header h1 {
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+    padding-top: 120px;  /* Position the heading */
+}
+
+/* Optional: Add overlay for better text visibility */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);  /* Dark overlay */
+    z-index: 0;
+}
+
+/* Remove any width restrictions on images */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Navigation */
+
+
+
+
+/* Blog grid */
+.blogs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    margin: 80px 0;
+}
+
+/* Blog post styles */
+.blog {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.blog:hover {
+    transform: translateY(-8px);
+}
+
+.blog img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 24px;
+}
+
+.blog h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.blog p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* Create Blog Button */
+#newblogbtn {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: #2d2d2d;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: background-color 0.2s ease;
+    margin-top: 40px;
+}
+
+#newblogbtn:hover {
+    background-color: #000;
+}
+
+/* Footer */
+footer {
+    background: #f8f8f8;
+    padding: 100px 0;
+    margin-top: 100px;
+}
+
+footer p {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Animations */
+.animate-fade-up {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 24px;
+    }
+    
+    header h1 {
+        font-size: 56px;
+    }
+    
+    .blogs {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 200px;
+    }
+    
+    header h1 {
+        font-size: 36px;
+        padding-top: 80px;
+    }
+    
+    .blogs {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog img {
+        height: 300px;
+    }
+}
+
+/* Form styles */
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    position: relative;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f8f8;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #2d2d2d;
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(45, 45, 45, 0.1);
+}
+
+textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2d2d2d;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+button[type="submit"] {
+    background: #2d2d2d;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+button[type="submit"]:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Form header */
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-header h1 {
+    font-size: 32px;
+    color: #2d2d2d;
+    margin-bottom: 16px;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* File upload styling */
+input[type="file"] {
+    display: none;
+}
+
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border: 2px dashed #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f8f8f8;
+}
+
+.file-upload-label:hover {
+    border-color: #2d2d2d;
+    background: #fff;
+}
+
+.file-upload-label span {
+    color: #666;
+}
+
+/* Success message */
+.success-message {
+    background: #e6f3e6;
+    color: #2c7a2c;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Blog post page styles */
+.blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.blog-post {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blog-header {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.blog-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-header-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+}
+
+.blog-header-content h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.blog-content {
+    padding: 40px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.blog-content p {
+    margin-bottom: 20px;
+}
+
+.blog-actions {
+    padding: 20px 40px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+}
+
+.back-button,
+.edit-button {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-button {
+    color: #666;
+}
+
+.back-button:hover {
+    color: #000;
+    background: #f5f5f5;
+}
+
+.edit-button {
+    background: #2d2d2d;
+    color: white;
+}
+
+.edit-button:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .blog-header {
+        height: 300px;
+    }
+
+    .blog-header-content h1 {
+        font-size: 28px;
+    }
+
+    .blog-content {
+        padding: 20px;
+        font-size: 16px;
+    }
+
+    .blog-actions {
+        padding: 20px;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .back-button,
+    .edit-button {
+        width: 100%;
+        text-align: center;
+    }
+}
